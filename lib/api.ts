@@ -67,22 +67,22 @@ export const authApi = {
 
 export const tasksApi = {
   list: (status?: string): Promise<Task[]> =>
-    api.get("/api/tasks/", { params: status ? { status } : {} }).then((r) => r.data),
+    api.get("/api/tasks/tasks/", { params: status ? { status } : {} }).then((r) => r.data),
 
   get: (id: number): Promise<Task> =>
-    api.get(`/api/tasks/${id}`).then((r) => r.data),
+    api.get(`/api/tasks/tasks/${id}`).then((r) => r.data),
 
   create: (data: CreateTaskPayload): Promise<Task> =>
-    api.post("/api/tasks/", data).then((r) => r.data),
+    api.post("/api/tasks/tasks/", data).then((r) => r.data),
 
   update: (id: number, data: UpdateTaskPayload): Promise<Task> =>
-    api.put(`/api/tasks/${id}`, data).then((r) => r.data),
+    api.put(`/api/tasks/tasks/${id}`, data).then((r) => r.data),
 
   delete: (id: number): Promise<void> =>
-    api.delete(`/api/tasks/${id}`).then(() => undefined),
+    api.delete(`/api/tasks/tasks/${id}`).then(() => undefined),
 
   stats: (): Promise<TaskStats> =>
-    api.get("/api/tasks/stats").then((r) => r.data),
+    api.get("/api/tasks/tasks/stats").then((r) => r.data),
 };
 
 // ── Notes ─────────────────────────────────────────────────────────────────────
