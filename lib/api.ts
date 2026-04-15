@@ -60,61 +60,61 @@ export const authApi = {
     api.get("/api/auth/me").then((r) => r.data),
 
   updateMe: (data: Partial<User>): Promise<User> =>
-    api.put("/api//auth/me", data).then((r) => r.data),
+    api.put("/api/auth/me", data).then((r) => r.data),
 };
 
 // ── Tasks ─────────────────────────────────────────────────────────────────────
 
 export const tasksApi = {
   list: (status?: string): Promise<Task[]> =>
-    api.get("/tasks/", { params: status ? { status } : {} }).then((r) => r.data),
+    api.get("/api/tasks/", { params: status ? { status } : {} }).then((r) => r.data),
 
   get: (id: number): Promise<Task> =>
-    api.get(`/tasks/${id}`).then((r) => r.data),
+    api.get(`/api/tasks/${id}`).then((r) => r.data),
 
   create: (data: CreateTaskPayload): Promise<Task> =>
-    api.post("/tasks/", data).then((r) => r.data),
+    api.post("/api/tasks/", data).then((r) => r.data),
 
   update: (id: number, data: UpdateTaskPayload): Promise<Task> =>
-    api.put(`/tasks/${id}`, data).then((r) => r.data),
+    api.put(`/api/tasks/${id}`, data).then((r) => r.data),
 
   delete: (id: number): Promise<void> =>
-    api.delete(`/tasks/${id}`).then(() => undefined),
+    api.delete(`/api/tasks/${id}`).then(() => undefined),
 
   stats: (): Promise<TaskStats> =>
-    api.get("/tasks/stats").then((r) => r.data),
+    api.get("/api/tasks/stats").then((r) => r.data),
 };
 
 // ── Notes ─────────────────────────────────────────────────────────────────────
 
 export const notesApi = {
   list: (search?: string): Promise<Note[]> =>
-    api.get("/notes/", { params: search ? { search } : {} }).then((r) => r.data),
+    api.get("/api/notes/", { params: search ? { search } : {} }).then((r) => r.data),
 
   get: (id: number): Promise<Note> =>
-    api.get(`/notes/${id}`).then((r) => r.data),
+    api.get(`/api/notes/${id}`).then((r) => r.data),
 
   create: (data: CreateNotePayload): Promise<Note> =>
-    api.post("/notes/", data).then((r) => r.data),
+    api.post("/api/notes/", data).then((r) => r.data),
 
   update: (id: number, data: UpdateNotePayload): Promise<Note> =>
-    api.put(`/notes/${id}`, data).then((r) => r.data),
+    api.put(`/api/notes/${id}`, data).then((r) => r.data),
 
   delete: (id: number): Promise<void> =>
-    api.delete(`/notes/${id}`).then(() => undefined),
+    api.delete(`/api/notes/${id}`).then(() => undefined),
 
   summarize: (id: number): Promise<Note> =>
-    api.post(`/notes/${id}/summarize`, { note_id: id }).then((r) => r.data),
+    api.post(`/api/notes/${id}/summarize`, { note_id: id }).then((r) => r.data),
 };
 
 // ── AI ────────────────────────────────────────────────────────────────────────
 
 export const aiApi = {
   generateTask: (data: GenerateTaskPayload): Promise<Task> =>
-    api.post("/ai/generate-task", data).then((r) => r.data),
+    api.post("/api/ai/generate-task", data).then((r) => r.data),
 
   learningPath: (): Promise<LearningPath> =>
-    api.get("/ai/learning-path").then((r) => r.data),
+    api.get("/api/ai/learning-path").then((r) => r.data),
 };
 
 export default api;
