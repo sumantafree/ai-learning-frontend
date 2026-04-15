@@ -18,7 +18,7 @@ import {
 // ── Axios instance ────────────────────────────────────────────────────────────
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://ailearning.theaihublab.com",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://ai-learning-aia7.onrender.com",
   headers: { "Content-Type": "application/json" },
   timeout: 30000,
 });
