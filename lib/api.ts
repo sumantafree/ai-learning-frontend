@@ -51,16 +51,16 @@ api.interceptors.response.use(
 
 export const authApi = {
   register: (data: RegisterPayload): Promise<AuthResponse> =>
-    api.post("/api/auth/register", data).then((r) => r.data),
+    api.post("/auth/register", data).then((r) => r.data),
 
   login: (data: LoginPayload): Promise<AuthResponse> =>
-    api.post("/api/auth/login", data).then((r) => r.data),
+    api.post("/auth/login", data).then((r) => r.data),
 
   me: (): Promise<User> =>
-    api.get("/api/auth/me").then((r) => r.data),
+    api.get("/auth/me").then((r) => r.data),
 
   updateMe: (data: Partial<User>): Promise<User> =>
-    api.put("/api/auth/me", data).then((r) => r.data),
+    api.put("/auth/me", data).then((r) => r.data),
 };
 
 // ── Tasks ─────────────────────────────────────────────────────────────────────
