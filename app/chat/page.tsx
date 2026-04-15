@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function ChatPage() {
   const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState<{ user: string; ai: string }[]>([]);
 
   const sendMessage = async () => {
     if (!message) return;
@@ -33,7 +33,7 @@ export default function ChatPage() {
       </div>
 
       <input
-        className="w-full p-3 rounded bg-gray-800"
+        className="w-full p-3 rounded bg-gray-800 text-white"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Ask anything..."
@@ -41,7 +41,7 @@ export default function ChatPage() {
 
       <button
         onClick={sendMessage}
-        className="mt-3 w-full bg-purple-600 p-3 rounded"
+        className="mt-3 w-full bg-purple-600 p-3 rounded text-white"
       >
         Send
       </button>
