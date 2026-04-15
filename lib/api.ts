@@ -89,22 +89,22 @@ export const tasksApi = {
 
 export const notesApi = {
   list: (search?: string): Promise<Note[]> =>
-    api.get("/api/notes/", { params: search ? { search } : {} }).then((r) => r.data),
+    api.get("/api/notes/notes/", { params: search ? { search } : {} }).then((r) => r.data),
 
   get: (id: number): Promise<Note> =>
-    api.get(`/api/notes/${id}`).then((r) => r.data),
+    api.get(`/api/notes/notes/${id}`).then((r) => r.data),
 
   create: (data: CreateNotePayload): Promise<Note> =>
-    api.post("/api/notes/", data).then((r) => r.data),
+    api.post("/api/notes/notes/", data).then((r) => r.data),
 
   update: (id: number, data: UpdateNotePayload): Promise<Note> =>
-    api.put(`/api/notes/${id}`, data).then((r) => r.data),
+    api.put(`/api/notes/notes/${id}`, data).then((r) => r.data),
 
   delete: (id: number): Promise<void> =>
-    api.delete(`/api/notes/${id}`).then(() => undefined),
+    api.delete(`/api/notes/notes/${id}`).then(() => undefined),
 
   summarize: (id: number): Promise<Note> =>
-    api.post(`/api/notes/${id}/summarize`, { note_id: id }).then((r) => r.data),
+    api.post(`/api/notes/notes/${id}/summarize`, { note_id: id }).then((r) => r.data),
 };
 
 // ── AI ────────────────────────────────────────────────────────────────────────
